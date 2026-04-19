@@ -1,0 +1,18 @@
+# Ortamlar (Environments)
+venv/
+.env
+
+# Önbellekler (Caches)
+__pycache__/
+*.pyc
+*.pyo
+
+# Veritabanı (Veriler büyük olabilir)
+chromadb_store/
+
+# IDE Özel Dosyalar
+.vscode/
+.idea/
+
+# Kullanıcı verileri
+data/*.pdf

@@ -1,0 +1,9 @@
+pymupdf
+langchain
+langchain-community
+langchain-huggingface
+sentence-transformers
+chromadb
+streamlit
+google-generativeai
+spacy
