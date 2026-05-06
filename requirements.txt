@@ -2,8 +2,15 @@ pymupdf
 langchain
 langchain-community
 langchain-huggingface
+langchain-text-splitters
 sentence-transformers
 chromadb
 streamlit
 google-generativeai
 spacy
+scikit-learn
+rank-bm25
+plotly
+pandas
+numpy
+Pillow

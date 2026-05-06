@@ -1,23 +1,28 @@
 import os
 
-# Yollar (Paths)
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data")
-DB_DIR = os.path.join(BASE_DIR, "chromadb_store")
+# ============ DOSYA YOLLARI ============
+PROJE_KLASORU = os.path.dirname(os.path.abspath(__file__))
+VERI_KLASORU = os.path.join(PROJE_KLASORU, "data")
+VERITABANI_KLASORU = os.path.join(PROJE_KLASORU, "chromadb_store")
+TEST_SORULARI_DOSYASI = os.path.join(VERI_KLASORU, "test_questions.json")
 
 # Dizinleri oluştur
-os.makedirs(DATA_DIR, exist_ok=True)
-os.makedirs(DB_DIR, exist_ok=True)
+os.makedirs(VERI_KLASORU, exist_ok=True)
+os.makedirs(VERITABANI_KLASORU, exist_ok=True)
 
-# Chunking (Parçalama) Ayarları
-CHUNK_SIZE = 500
-CHUNK_OVERLAP = 50
+# ============ PARÇALAMA AYARLARI ============
+PARCA_BOYUTU = 500        # Her bir chunk'ın karakter uzunluğu
+PARCA_KESISIMI = 50       # Ardışık chunk'lar arasındaki örtüşme
 
-# Modeller
-EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
-# İngilizce Spacy modeli ile kavram (NER) denemesi yapacağız. 
-# Eğer Türkçe modeli olsaydı: spacy.load("tr_core_news_trf") gibi kullanacaktık.
-SPACY_MODEL = "en_core_web_sm"
+# ============ MODEL AYARLARI ============
+EMBEDDING_MODELI = "all-MiniLM-L6-v2"
 
-# Opsiyonel API
+# İngilizce Spacy modeli ile kavram (NER) çıkarımı yapacağız.
+# Türkçe modeli olsaydı: spacy.load("tr_core_news_trf") gibi kullanacaktık.
+SPACY_MODELI = "en_core_web_sm"
+
+# ============ API AYARLARI ============
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+
+# ============ KOLEKSIYON ADI ============
+KOLEKSIYON_ADI = "ders_notlari"

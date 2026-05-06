@@ -1,0 +1,77 @@
+[
+  {
+    "question": "Google Colab nedir ve ne işe yarar?",
+    "relevant_keywords": ["colab", "google", "bulut", "notebook", "python", "ücretsiz", "gpu"],
+    "expected_answer": "Google Colab, Google tarafından sunulan bulut tabanlı ücretsiz bir Jupyter Notebook ortamıdır. Python kodu yazmak ve çalıştırmak için kullanılır ve ücretsiz GPU/TPU erişimi sağlar."
+  },
+  {
+    "question": "Colab'da GPU nasıl kullanılır?",
+    "relevant_keywords": ["gpu", "runtime", "çalışma zamanı", "hızlandırıcı", "cuda", "t4", "donanım"],
+    "expected_answer": "Colab'da GPU kullanmak için Runtime > Change runtime type menüsünden GPU seçilir."
+  },
+  {
+    "question": "Fine-tuning nedir?",
+    "relevant_keywords": ["fine-tuning", "ince ayar", "önceden eğitilmiş", "model", "transfer", "öğrenme", "ağırlık"],
+    "expected_answer": "Fine-tuning, önceden eğitilmiş bir modelin belirli bir göreve veya veri setine uyarlanması işlemidir. Transfer öğrenmenin bir formudur."
+  },
+  {
+    "question": "Transfer öğrenme ne demektir?",
+    "relevant_keywords": ["transfer", "öğrenme", "learning", "önceden", "eğitilmiş", "pretrained", "model"],
+    "expected_answer": "Transfer öğrenme, bir görev için eğitilmiş modelin bilgisinin başka bir göreve aktarılmasıdır."
+  },
+  {
+    "question": "Prompt Engineering nedir?",
+    "relevant_keywords": ["prompt", "engineering", "tasarım", "istem", "llm", "dil modeli", "yönerge"],
+    "expected_answer": "Prompt Engineering, büyük dil modellerinden daha iyi ve tutarlı sonuçlar almak için istemlerin stratejik olarak tasarlanması yöntemidir."
+  },
+  {
+    "question": "Few-shot prompting nedir?",
+    "relevant_keywords": ["few-shot", "örnek", "prompt", "öğrenme", "bağlam", "example"],
+    "expected_answer": "Few-shot prompting, modele birkaç örnek vererek istenilen formatta çıktı almasını sağlayan bir prompt tekniğidir."
+  },
+  {
+    "question": "Zero-shot prompting ne anlama gelir?",
+    "relevant_keywords": ["zero-shot", "sıfır", "örnek", "prompt", "talimat", "instruction"],
+    "expected_answer": "Zero-shot prompting, modele hiç örnek vermeden sadece talimatla görev yaptırma yöntemidir."
+  },
+  {
+    "question": "LoRA nedir ve fine-tuning'de nasıl kullanılır?",
+    "relevant_keywords": ["lora", "low-rank", "adaptation", "parametre", "verimli", "fine-tuning", "ağırlık"],
+    "expected_answer": "LoRA (Low-Rank Adaptation), büyük dil modellerini düşük maliyetle fine-tune etmek için kullanılan parametre verimli bir yöntemdir."
+  },
+  {
+    "question": "Büyük dil modeli (LLM) nedir?",
+    "relevant_keywords": ["llm", "büyük", "dil", "model", "transformer", "gpt", "parametre", "language"],
+    "expected_answer": "Büyük dil modeli, milyarlarca parametre ile eğitilmiş, doğal dil anlama ve üretme yeteneğine sahip yapay zeka modelleridir."
+  },
+  {
+    "question": "Chain-of-thought prompting nedir?",
+    "relevant_keywords": ["chain", "thought", "düşünce", "zincir", "adım", "mantık", "reasoning"],
+    "expected_answer": "Chain-of-thought prompting, modelin adım adım düşünmesini sağlayarak karmaşık problemlerde daha doğru sonuçlar alınmasını sağlayan bir tekniktir."
+  },
+  {
+    "question": "Epoch nedir ve model eğitiminde nasıl kullanılır?",
+    "relevant_keywords": ["epoch", "eğitim", "iterasyon", "veri seti", "döngü", "training"],
+    "expected_answer": "Epoch, tüm eğitim veri setinin model tarafından bir kez tamamen işlenmesidir. Birden fazla epoch ile model daha iyi öğrenir."
+  },
+  {
+    "question": "Overfitting nedir ve nasıl önlenir?",
+    "relevant_keywords": ["overfitting", "aşırı", "öğrenme", "genelleme", "dropout", "regularization", "ezber"],
+    "expected_answer": "Overfitting, modelin eğitim verisini ezberleyip yeni verilerde başarısız olmasıdır. Dropout, regularization ve early stopping ile önlenebilir."
+  },
+  {
+    "question": "Tokenization nedir?",
+    "relevant_keywords": ["token", "tokenization", "kelime", "parça", "alt kelime", "subword", "bpe"],
+    "expected_answer": "Tokenization, metni daha küçük parçalara (tokenlara) ayırma işlemidir. BPE, WordPiece gibi yöntemler kullanılır."
+  },
+  {
+    "question": "Embedding nedir ve ne işe yarar?",
+    "relevant_keywords": ["embedding", "vektör", "temsil", "anlam", "uzay", "boyut", "word2vec"],
+    "expected_answer": "Embedding, kelimelerin veya metinlerin anlamsal olarak sayısal vektörlere dönüştürülmesidir."
+  },
+  {
+    "question": "Attention mekanizması nasıl çalışır?",
+    "relevant_keywords": ["attention", "dikkat", "transformer", "query", "key", "value", "self-attention"],
+    "expected_answer": "Attention mekanizması, modelin girdi dizisindeki farklı pozisyonlara farklı ağırlıklar vererek önemli bilgilere odaklanmasını sağlar."
+  }
+]
