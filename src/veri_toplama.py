@@ -98,8 +98,13 @@ def klasorden_oku(klasor=None):
 
 
 def metni_temizle(metin):
-    """Gereksiz boşlukları ve tekrar eden satır sonlarını temizler."""
+    """Gereksiz boşlukları temizler ama anlamlı satır sonlarını korur."""
     if not metin:
         return ""
-    metin = re.sub(r'\s+', ' ', metin)
+    # Arka arkaya 3+ satır sonunu 2'ye indir (paragraf yapısını korur)
+    metin = re.sub(r'\n{3,}', '\n\n', metin)
+    # Satır başlarındaki ve sonlarındaki boşlukları temizle
+    metin = "\n".join([line.strip() for line in metin.split("\n")])
+    # Birden fazla boşluğu teke indir
+    metin = re.sub(r' +', ' ', metin)
     return metin.strip()

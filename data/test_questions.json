@@ -1,77 +1,217 @@
 [
   {
-    "question": "Google Colab nedir ve ne işe yarar?",
-    "relevant_keywords": ["colab", "google", "bulut", "notebook", "python", "ücretsiz", "gpu"],
-    "expected_answer": "Google Colab, Google tarafından sunulan bulut tabanlı ücretsiz bir Jupyter Notebook ortamıdır. Python kodu yazmak ve çalıştırmak için kullanılır ve ücretsiz GPU/TPU erişimi sağlar."
+    "question": "Doğal Dil İşleme (NLP) nedir ve temel amaçları nelerdir?",
+    "relevant_keywords": [
+      "doğal dil işleme",
+      "yapay zekâ",
+      "bilgisayar",
+      "anlamak",
+      "yorumlamak",
+      "üretmek",
+      "iletişim"
+    ],
+    "expected_answer": "Doğal Dil İşleme (NLP), insanların kullandığı doğal dillerin bilgisayarlar tarafından anlaşılmasını, yorumlanmasını ve üretilmesini sağlayan bir yapay zekâ alanıdır. Temel amaçları arasında insan dili ile bilgisayar arasında iletişim kurmak, metinleri analiz etmek ve anlam çıkarmak bulunur."
   },
   {
-    "question": "Colab'da GPU nasıl kullanılır?",
-    "relevant_keywords": ["gpu", "runtime", "çalışma zamanı", "hızlandırıcı", "cuda", "t4", "donanım"],
-    "expected_answer": "Colab'da GPU kullanmak için Runtime > Change runtime type menüsünden GPU seçilir."
+    "question": "Günümüzde yaygın olarak kullanılan NLP tabanlı sistemlere iki örnek veriniz.",
+    "relevant_keywords": [
+      "nlp tabanlı",
+      "sistemler",
+      "chatbotlar",
+      "sesli asistanlar",
+      "yapay zekâ"
+    ],
+    "expected_answer": "Günümüzde kullanılan birçok sistem NLP tabanlıdır. Buna örnek olarak chatbotlar ve sesli asistanlar (Siri, Alexa, Google Assistant gibi) verilebilir."
   },
   {
-    "question": "Fine-tuning nedir?",
-    "relevant_keywords": ["fine-tuning", "ince ayar", "önceden eğitilmiş", "model", "transfer", "öğrenme", "ağırlık"],
-    "expected_answer": "Fine-tuning, önceden eğitilmiş bir modelin belirli bir göreve veya veri setine uyarlanması işlemidir. Transfer öğrenmenin bir formudur."
+    "question": "2000 yılı sonrası NLP alanındaki önemli gelişmeler nelerdir?",
+    "relevant_keywords": [
+      "2000 sonrası",
+      "makine öğrenmesi",
+      "derin öğrenme",
+      "transformer modelleri",
+      "büyük veri kümeleri"
+    ],
+    "expected_answer": "2000 yılı sonrası büyük veri kümeleri kullanılmaya başlanmış, makine öğrenmesi yaygınlaşmış ve derin öğrenme NLP'ye girmiştir. Ayrıca Transformer modelleri geliştirilmiştir."
   },
   {
-    "question": "Transfer öğrenme ne demektir?",
-    "relevant_keywords": ["transfer", "öğrenme", "learning", "önceden", "eğitilmiş", "pretrained", "model"],
-    "expected_answer": "Transfer öğrenme, bir görev için eğitilmiş modelin bilgisinin başka bir göreve aktarılmasıdır."
+    "question": "Duygu analizi nedir ve örnek bir kullanım senaryosu ile açıklayınız.",
+    "relevant_keywords": [
+      "duygu analizi",
+      "olumlu",
+      "olumsuz",
+      "nötr",
+      "yorum",
+      "tespit eder"
+    ],
+    "expected_answer": "Duygu analizi, bir yorumun olumlu, olumsuz veya nötr olup olmadığını tespit etmeye yarar. Örneğin, “Bu telefonu çok beğendim.” ifadesinin pozitif bir duygu taşıdığını belirleyebilir."
   },
   {
-    "question": "Prompt Engineering nedir?",
-    "relevant_keywords": ["prompt", "engineering", "tasarım", "istem", "llm", "dil modeli", "yönerge"],
-    "expected_answer": "Prompt Engineering, büyük dil modellerinden daha iyi ve tutarlı sonuçlar almak için istemlerin stratejik olarak tasarlanması yöntemidir."
+    "question": "Bir NLP sisteminin genel olarak hangi aşamalardan oluştuğunu sıralayınız.",
+    "relevant_keywords": [
+      "nlp sistemi",
+      "aşamalar",
+      "veri toplama",
+      "ön işleme",
+      "özellik çıkarma",
+      "modelleme",
+      "sonuç üretme"
+    ],
+    "expected_answer": "Bir NLP sistemi genellikle şu aşamalardan oluşur: Veri Toplama, Ön İşleme, Özellik Çıkarma, Modelleme ve Sonuç Üretme."
   },
   {
-    "question": "Few-shot prompting nedir?",
-    "relevant_keywords": ["few-shot", "örnek", "prompt", "öğrenme", "bağlam", "example"],
-    "expected_answer": "Few-shot prompting, modele birkaç örnek vererek istenilen formatta çıktı almasını sağlayan bir prompt tekniğidir."
+    "question": "Metin ön işleme (Text Preprocessing) aşaması NLP için neden bu kadar önemlidir?",
+    "relevant_keywords": [
+      "metin ön işleme",
+      "ham veriler",
+      "dağınık",
+      "gereksiz",
+      "anlamsız",
+      "nlp'nin önemli aşamaları"
+    ],
+    "expected_answer": "Metin ön işleme, ham verilerin dağınık, gereksiz ve anlamsız olabileceği için NLP'nin en önemli aşamalarından biridir. Bu aşama, verileri daha temiz ve analiz edilebilir hale getirmeyi amaçlar."
   },
   {
-    "question": "Zero-shot prompting ne anlama gelir?",
-    "relevant_keywords": ["zero-shot", "sıfır", "örnek", "prompt", "talimat", "instruction"],
-    "expected_answer": "Zero-shot prompting, modele hiç örnek vermeden sadece talimatla görev yaptırma yöntemidir."
+    "question": "Stemming ve Lemmatization teknikleri arasındaki temel fark nedir?",
+    "relevant_keywords": [
+      "stemming",
+      "lemmatization",
+      "kelime kökü",
+      "sözlük hali",
+      "ekler",
+      "gelişmiş"
+    ],
+    "expected_answer": "Stemming, kelimenin eklerini atarak kökünü bulmaya çalışırken, Lemmatization kelimenin sözlükteki gerçek anlamlı haline, yani lemma'sına ulaşır. Lemmatization, Stemming'den daha gelişmiş bir yöntemdir."
   },
   {
-    "question": "LoRA nedir ve fine-tuning'de nasıl kullanılır?",
-    "relevant_keywords": ["lora", "low-rank", "adaptation", "parametre", "verimli", "fine-tuning", "ağırlık"],
-    "expected_answer": "LoRA (Low-Rank Adaptation), büyük dil modellerini düşük maliyetle fine-tune etmek için kullanılan parametre verimli bir yöntemdir."
+    "question": "N-Gram modeli ne amaçla kullanılır ve başlıca türleri nelerdir?",
+    "relevant_keywords": [
+      "n-gram modeli",
+      "kelime tahmini",
+      "unigram",
+      "bigram",
+      "trigram",
+      "kelime dizisi"
+    ],
+    "expected_answer": "N-gram modeli, bir kelimenin ardından hangi kelimenin geleceğini tahmin etmeye yarar. Başlıca türleri Unigram (tek kelime), Bigram (iki kelimelik yapı) ve Trigram (üç kelimelik yapı) olarak belirtilmiştir."
   },
   {
-    "question": "Büyük dil modeli (LLM) nedir?",
-    "relevant_keywords": ["llm", "büyük", "dil", "model", "transformer", "gpt", "parametre", "language"],
-    "expected_answer": "Büyük dil modeli, milyarlarca parametre ile eğitilmiş, doğal dil anlama ve üretme yeteneğine sahip yapay zeka modelleridir."
+    "question": "Bag of Words (BoW) modelinin temel prensibi nedir?",
+    "relevant_keywords": [
+      "bag of words",
+      "metindeki kelimeler",
+      "frekans",
+      "kelime sırası",
+      "önemli değildir"
+    ],
+    "expected_answer": "Bag of Words (BoW) modelinin temel prensibi, metindeki kelimelerin frekansına bakılmasıdır. Bu modelde kelimelerin metin içindeki sırası önemli değildir, sadece varlığı ve tekrar sayısı dikkate alınır."
   },
   {
-    "question": "Chain-of-thought prompting nedir?",
-    "relevant_keywords": ["chain", "thought", "düşünce", "zincir", "adım", "mantık", "reasoning"],
-    "expected_answer": "Chain-of-thought prompting, modelin adım adım düşünmesini sağlayarak karmaşık problemlerde daha doğru sonuçlar alınmasını sağlayan bir tekniktir."
+    "question": "Word2Vec ne işe yarar ve hangi iki temel modele sahiptir?",
+    "relevant_keywords": [
+      "word2vec",
+      "kelimelerin anlam ilişkileri",
+      "öğrenen yöntem",
+      "cbow",
+      "skip-gram",
+      "vektör"
+    ],
+    "expected_answer": "Word2Vec, kelimelerin anlam ilişkilerini öğrenen bir yöntemdir ve kelimeleri vektör uzayında temsil eder. İki temel modeli CBOW ve Skip-gram olarak belirtilmiştir."
   },
   {
-    "question": "Epoch nedir ve model eğitiminde nasıl kullanılır?",
-    "relevant_keywords": ["epoch", "eğitim", "iterasyon", "veri seti", "döngü", "training"],
-    "expected_answer": "Epoch, tüm eğitim veri setinin model tarafından bir kez tamamen işlenmesidir. Birden fazla epoch ile model daha iyi öğrenir."
+    "question": "Transformer modellerinin metin anlamadaki başarısının arkasındaki temel özellikler nelerdir?",
+    "relevant_keywords": [
+      "transformer modelleri",
+      "cümlenin sağı solu",
+      "birlikte analiz",
+      "metin anlama",
+      "çok başarılı",
+      "attention mekanizması"
+    ],
+    "expected_answer": "Transformer modelleri, cümlenin sağını ve solunu birlikte analiz ederek metin anlamada çok başarılıdır. Bu başarının temelinde Attention mekanizması yatar."
   },
   {
-    "question": "Overfitting nedir ve nasıl önlenir?",
-    "relevant_keywords": ["overfitting", "aşırı", "öğrenme", "genelleme", "dropout", "regularization", "ezber"],
-    "expected_answer": "Overfitting, modelin eğitim verisini ezberleyip yeni verilerde başarısız olmasıdır. Dropout, regularization ve early stopping ile önlenebilir."
+    "question": "NLP sistemleri neden ironi ve mizahı anlamakta zorlanırlar?",
+    "relevant_keywords": [
+      "ironi",
+      "mizah",
+      "anlamakta zorlanır",
+      "dilbilgisi karmaşıklığı",
+      "insan dili",
+      "esnek"
+    ],
+    "expected_answer": "NLP sistemleri ironi ve mizahı anlamakta zorlanırlar çünkü insan dili çok esnektir ve bu tür ifadeler genellikle doğrudan anlamlarının dışında bir anlama sahiptir. Bu durum bilgisayarlar için anlam çıkarmayı zorlaştırır."
   },
   {
-    "question": "Tokenization nedir?",
-    "relevant_keywords": ["token", "tokenization", "kelime", "parça", "alt kelime", "subword", "bpe"],
-    "expected_answer": "Tokenization, metni daha küçük parçalara (tokenlara) ayırma işlemidir. BPE, WordPiece gibi yöntemler kullanılır."
+    "question": "Named Entity Recognition (NER) ne yapar ve bir örnekle açıklayınız.",
+    "relevant_keywords": [
+      "named entity recognition",
+      "özel varlıklar",
+      "bulur",
+      "kişi",
+      "şehir",
+      "şirket"
+    ],
+    "expected_answer": "Named Entity Recognition (NER), metindeki özel varlıkları (kişi, yer, organizasyon vb.) bulur ve sınıflandırır. Örneğin, 'Ahmet İstanbul’da Apple şirketinde çalışıyor.' cümlesinde Ahmet'i kişi, İstanbul'u şehir ve Apple'ı şirket olarak tespit edebilir."
   },
   {
-    "question": "Embedding nedir ve ne işe yarar?",
-    "relevant_keywords": ["embedding", "vektör", "temsil", "anlam", "uzay", "boyut", "word2vec"],
-    "expected_answer": "Embedding, kelimelerin veya metinlerin anlamsal olarak sayısal vektörlere dönüştürülmesidir."
+    "question": "Dil modellerinin (Language Models) temel görevi nedir?",
+    "relevant_keywords": [
+      "dil modelleri",
+      "language model",
+      "sonraki kelime",
+      "tahmin eder",
+      "olasılık hesapları"
+    ],
+    "expected_answer": "Dil modellerinin (Language Models) temel görevi, bir sonraki kelimenin ne olacağını tahmin etmektir. Bu modeller, genellikle olasılık hesapları kullanarak metin üretimi ve otomatik tamamlama gibi alanlarda kullanılır."
   },
   {
-    "question": "Attention mekanizması nasıl çalışır?",
-    "relevant_keywords": ["attention", "dikkat", "transformer", "query", "key", "value", "self-attention"],
-    "expected_answer": "Attention mekanizması, modelin girdi dizisindeki farklı pozisyonlara farklı ağırlıklar vererek önemli bilgilere odaklanmasını sağlar."
+    "question": "Recurrent Neural Networks (RNN) ile ilgili temel sorun nedir ve Long Short-Term Memory (LSTM) bu sorunu nasıl giderir?",
+    "relevant_keywords": [
+      "recurrent neural network",
+      "rnn",
+      "uzun bağımlılık problemi",
+      "lstm",
+      "uzun cümleler",
+      "öğrenir",
+      "unutma problemi"
+    ],
+    "expected_answer": "Recurrent Neural Networks (RNN) ile ilgili temel sorun, uzun bağımlılık problemidir; yani geçmişteki bilgileri uzun süre hatırlayamamasıdır. Long Short-Term Memory (LSTM), bu sorunu daha uzun cümleleri daha iyi öğrenerek ve unutma problemini azaltarak giderir."
+  },
+  {
+    "question": "Self-Attention mekanizması ne işe yarar ve Transformer mimarisindeki rolü nedir?",
+    "relevant_keywords": [
+      "self-attention",
+      "kelimenin cümledeki",
+      "diğer kelimelerle ilişkisi",
+      "hesaplar",
+      "transformer mimarisi",
+      "ana mekanizma"
+    ],
+    "expected_answer": "Self-Attention mekanizması, bir kelimenin cümledeki diğer kelimelerle olan ilişkisini hesaplar. Bu mekanizma, Transformer mimarisinin ana bileşenidir ve modelin metnin farklı bölümlerine odaklanmasını sağlar."
+  },
+  {
+    "question": "NLP'de veri temizleme sürecinde genellikle hangi türdeki öğeler silinir?",
+    "relevant_keywords": [
+      "veri temizleme",
+      "silinenler",
+      "emoji",
+      "gereksiz karakter",
+      "html etiketleri",
+      "noktalama işaretleri"
+    ],
+    "expected_answer": "NLP'de veri temizleme sürecinde genellikle emoji, gereksiz karakterler, HTML etiketleri ve noktalama işaretleri gibi öğeler silinir. Bu işlem, veriyi daha düzenli ve analiz için uygun hale getirir."
+  },
+  {
+    "question": "NLP ile ilgili belirtilen etik sorunlardan üçünü açıklayınız.",
+    "relevant_keywords": [
+      "etik problemler",
+      "bias problemi",
+      "gizlilik problemi",
+      "yanlış bilgi",
+      "taraflı veri",
+      "kullanıcı verileri"
+    ],
+    "expected_answer": "NLP ile ilgili belirtilen etik sorunlar arasında Bias Problemi (veri taraflıysa modelin de taraflı olması), Gizlilik Problemi (kullanıcı verilerinin korunması gerekliliği) ve Yanlış Bilgi (yapay zekânın bazen hatalı veya kurgusal içerik üretebilmesi) bulunmaktadır."
   }
 ]

@@ -13,7 +13,7 @@ import config
 from src.vektor_deposu import koleksiyonu_getir
 
 
-def baglamlari_getir(soru, sonuc_sayisi=3):
+def baglamlari_getir(soru, sonuc_sayisi=5):
     """
     Soruya anlamsal olarak en yakın metin parçalarını ChromaDB'den getirir.
     Returns: (baglam_metni, benzerlik_skorlari, gecen_sure)
@@ -23,8 +23,15 @@ def baglamlari_getir(soru, sonuc_sayisi=3):
         return "Veritabanı oluşturulmamış! (ChromaDB yok)", [], 0
     
     baslangic = time.time()
+    
+    # Sorgu Temizleme (Noise Reduction)
+    temiz_soru = soru.lower()
+    stop_words = ["nedir", "nelerdir", "neden", "niçin", "nasıl", "kimdir", "nedir?", "nelerdir?"]
+    for word in stop_words:
+        temiz_soru = temiz_soru.replace(word, "").strip()
+    
     embedding_modeli = HuggingFaceEmbeddings(model_name=EMBEDDING_MODELI)
-    soru_vektoru = embedding_modeli.embed_query(soru)
+    soru_vektoru = embedding_modeli.embed_query(temiz_soru if temiz_soru else soru)
     
     sonuclar = koleksiyon.query(
         query_embeddings=[soru_vektoru],

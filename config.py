@@ -22,7 +22,7 @@ EMBEDDING_MODELI = "all-MiniLM-L6-v2"
 SPACY_MODELI = "en_core_web_sm"
 
 # ============ API AYARLARI ============
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "BURAYA_API_KEYINIZI_YAZIN")
 
 # ============ KOLEKSIYON ADI ============
 KOLEKSIYON_ADI = "ders_notlari"

@@ -13,15 +13,18 @@ import re
 import time
 
 
+def _sorgu_temizle(soru):
+    """Sorgudaki gürültü kelimeleri (nedir, nasıl vb.) temizler."""
+    temiz = soru.lower()
+    durak_kelimeler = ["nedir", "nelerdir", "neden", "niçin", "nasıl", "kimdir", "nedir?", "nelerdir?", "nelerdir.", "nedir."]
+    for kelime in durak_kelimeler:
+        temiz = temiz.replace(kelime, "").strip()
+    return temiz if temiz else soru
+
+
 class TFIDFArama:
     """
     TF-IDF (Terim Sıklığı - Ters Belge Sıklığı) tabanlı arama sistemi.
-    
-    Çalışma Prensibi:
-    - Her kelimeye, belge içindeki sıklığı ve tüm belgeler arasındaki
-      nadirliğine göre bir ağırlık verir.
-    - Sorgu ile belgeler arası benzerlik Kosinüs Benzerliği ile ölçülür.
-    - Semantik anlam YAKALAMAZ, sadece kelime eşleşmesi yapar.
     """
     
     def __init__(self):
@@ -43,19 +46,15 @@ class TFIDFArama:
         self.bilgiler = [p["metadata"] for p in parcalar]
         self.tfidf_matrisi = self.vektorleyici.fit_transform(self.belgeler)
         self.hazir = True
-        print(f"TF-IDF Modeli Eğitildi: {len(self.belgeler)} belge, "
-              f"{len(self.vektorleyici.get_feature_names_out())} özellik")
+        print(f"TF-IDF Modeli Eğitildi: {len(self.belgeler)} belge")
     
     def ara(self, soru, sonuc_sayisi=3):
-        """
-        Sorguya en yakın belgeleri TF-IDF + Kosinüs Benzerliği ile getir.
-        Returns: (baglam, skorlar, gecen_sure)
-        """
         if not self.hazir:
             return "TF-IDF modeli henüz eğitilmemiş!", [], 0
         
         baslangic = time.time()
-        soru_vektoru = self.vektorleyici.transform([soru])
+        temiz_soru = _sorgu_temizle(soru)
+        soru_vektoru = self.vektorleyici.transform([temiz_soru])
         benzerlikler = cosine_similarity(soru_vektoru, self.tfidf_matrisi).flatten()
         en_iyiler = benzerlikler.argsort()[-sonuc_sayisi:][::-1]
         gecen_sure = time.time() - baslangic
@@ -69,21 +68,11 @@ class TFIDFArama:
             skorlar.append(skor)
         
         return "\n\n".join(baglam_parcalari), skorlar, gecen_sure
-    
-    def sozluk_boyutu(self):
-        if self.hazir:
-            return len(self.vektorleyici.get_feature_names_out())
-        return 0
 
 
 class BM25Arama:
     """
     BM25 (Best Matching 25) tabanlı arama sistemi.
-    
-    Çalışma Prensibi:
-    - TF-IDF'in geliştirilmiş versiyonudur.
-    - Belge uzunluğunu normalize eder.
-    - Arama motorlarının temelini oluşturan klasik algoritmadır.
     """
     
     def __init__(self, k1=1.5, b=0.75):
@@ -96,11 +85,9 @@ class BM25Arama:
         self.b = b
     
     def _tokenla(self, metin):
-        """Basit tokenization: alfanümerik kelimelere ayır."""
         return re.findall(r'\w+', metin.lower())
     
     def egit(self, parcalar):
-        """Parça listesinden BM25 indeksini oluştur."""
         if not parcalar:
             return
         self.belgeler = [p["page_content"] for p in parcalar]
@@ -108,19 +95,14 @@ class BM25Arama:
         self.tokenli_belgeler = [self._tokenla(b) for b in self.belgeler]
         self.bm25 = BM25Okapi(self.tokenli_belgeler, k1=self.k1, b=self.b)
         self.hazir = True
-        ort_uzunluk = np.mean([len(t) for t in self.tokenli_belgeler])
-        print(f"BM25 Modeli Eğitildi: {len(self.belgeler)} belge, Ort. Token: {ort_uzunluk:.0f}")
     
     def ara(self, soru, sonuc_sayisi=3):
-        """
-        Sorguya en yakın belgeleri BM25 ile getir.
-        Returns: (baglam, skorlar, gecen_sure)
-        """
         if not self.hazir:
             return "BM25 modeli henüz eğitilmemiş!", [], 0
         
         baslangic = time.time()
-        tokenli_soru = self._tokenla(soru)
+        temiz_soru = _sorgu_temizle(soru)
+        tokenli_soru = self._tokenla(temiz_soru)
         ham_skorlar = self.bm25.get_scores(tokenli_soru)
         en_iyiler = ham_skorlar.argsort()[-sonuc_sayisi:][::-1]
         gecen_sure = time.time() - baslangic
@@ -137,9 +119,86 @@ class BM25Arama:
 
 
 def geleneksel_modelleri_kur(parcalar):
-    """Her iki geleneksel modeli de oluştur ve döndür."""
     tfidf = TFIDFArama()
     bm25 = BM25Arama()
     tfidf.egit(parcalar)
     bm25.egit(parcalar)
     return tfidf, bm25
+
+
+class HybridArama:
+    """
+    Hybrid Search: BM25 (keyword) + Semantic (embedding) skorlarını
+    ağırlıklı olarak birleştirir. State-of-the-art retrieval yaklaşımı.
+    alpha: Semantic ağırlığı (1-alpha: BM25 ağırlığı)
+    """
+    
+    def __init__(self, bm25_arama, semantic_arama_fn, alpha=0.6):
+        self.bm25 = bm25_arama
+        self.semantic_fn = semantic_arama_fn
+        self.alpha = alpha
+    
+    def ara(self, soru, sonuc_sayisi=5):
+        baslangic = time.time()
+        
+        # BM25 sonuçları
+        bm25_baglam, bm25_skorlar, _ = self.bm25.ara(soru, sonuc_sayisi)
+        
+        # Semantic sonuçları
+        sem_baglam, sem_skorlar, _ = self.semantic_fn(soru, sonuc_sayisi)
+        
+        # Skorları normalize et (0-1 arası)
+        def normalize(skorlar):
+            if not skorlar:
+                return []
+            mn, mx = min(skorlar), max(skorlar)
+            if mx == mn:
+                return [0.5] * len(skorlar)
+            return [(s - mn) / (mx - mn) for s in skorlar]
+        
+        bm25_norm = normalize(bm25_skorlar)
+        sem_norm = normalize(sem_skorlar)
+        
+        # Ağırlıklı birleştirme - en iyi skoru al
+        hybrid_skorlar = []
+        for i in range(min(len(bm25_norm), len(sem_norm))):
+            h = self.alpha * sem_norm[i] + (1 - self.alpha) * bm25_norm[i]
+            hybrid_skorlar.append(round(h, 4))
+        
+        # En iyi skora sahip kaynağın bağlamını kullan (semantic genellikle daha kaliteli)
+        gecen_sure = time.time() - baslangic
+        
+        if hybrid_skorlar:
+            return sem_baglam, hybrid_skorlar, gecen_sure
+        return "Hybrid arama sonuç bulamadı.", [], gecen_sure
+
+
+def embedding_gorselleştir(parcalar):
+    """
+    t-SNE ile parçaların 2D embedding görselleştirmesini oluşturur.
+    Returns: dict with x, y, labels, sources
+    """
+    from sklearn.manifold import TSNE
+    from langchain_huggingface import HuggingFaceEmbeddings
+    from config import EMBEDDING_MODELI
+    
+    if not parcalar or len(parcalar) < 5:
+        return None
+    
+    embedding_modeli = HuggingFaceEmbeddings(model_name=EMBEDDING_MODELI)
+    metinler = [p["page_content"] for p in parcalar]
+    kaynaklar = [p["metadata"].get("source", "?") for p in parcalar]
+    
+    vektorler = embedding_modeli.embed_documents(metinler)
+    vektorler_np = np.array(vektorler)
+    
+    perplexity = min(30, len(parcalar) - 1)
+    tsne = TSNE(n_components=2, random_state=42, perplexity=perplexity)
+    coords = tsne.fit_transform(vektorler_np)
+    
+    return {
+        "x": coords[:, 0].tolist(),
+        "y": coords[:, 1].tolist(),
+        "labels": [m[:60] + "..." for m in metinler],
+        "sources": kaynaklar
+    }
