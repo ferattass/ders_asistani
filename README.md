@@ -97,3 +97,9 @@ Commercial use of this project is strictly prohibited without explicit written p
 For commercial licensing inquiries:
 - Contact: Ferat Taş
 - GitHub: https://github.com/ferattass
+
+---
+
+## 👥 Katkıda Bulunanlar (Contributors)
+
+* **Mahmut Ateş** - *Geliştirici / Proje Ortağı* - [@ates779](https://github.com/ates779/)
