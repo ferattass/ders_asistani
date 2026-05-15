@@ -83,3 +83,17 @@ streamlit run app.py
 
 ---
 *Bu proje, Retrieval-Augmented Generation (RAG) mimarisini ve Bilgi Getirme (IR) sistemlerini derinlemesine incelemek amacıyla akademik bir perspektifle geliştirilmiştir.*
+
+---
+
+## 📜 License
+
+This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
+
+You are free to use, modify, and contribute to this project for personal, educational, and research purposes.
+
+Commercial use of this project is strictly prohibited without explicit written permission from the author.
+
+For commercial licensing inquiries:
+- Contact: Ferat Taş
+- GitHub: https://github.com/ferattass
